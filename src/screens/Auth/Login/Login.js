@@ -19,85 +19,86 @@ import Api from "../../../redux/lib/api";
 import urls from "../../../redux/lib/urls";
 import Fonts from "../../../helpers/Fonts";
 import Loader from "../../../components/loader";
+import { routeName } from "../../../constants/routeName";
 const Login = ({ navigation }) => {
-  const loading = useSelector(
-    (state) => state.userReducers.loginScreen.refreshing
-  );
-  const loginResponse = useSelector(
-    (state) => state.userReducers.loginScreen.data
-  );
-  const loginNetworkErr = useSelector(
-    (state) => state.userReducers.loginScreen.errorMsg
-  );
-  const [errorString, setErrorString] = React.useState("");
-  const [userName, setUserName] = React.useState("");
-  const [password, setPassword] = React.useState("");
-  const [company, setCompany] = React.useState("");
-  const [data, setData] = React.useState([]);
-  //Redux Action Called
-  const dispatch = useDispatch();
-  const userLogin = () => {
-    dispatch(
-      loginUser({
-        params: {
-          username: userName,
-          password: password,
-          // schoolName1: data.find((item) => item.branchName == school)?.id,
-          userType:2
-        },
-        navigation: navigation,
-      })
-    );
-  };
+  // const loading = useSelector(
+  //   (state) => state.userReducers.loginScreen.refreshing
+  // );
+  // const loginResponse = useSelector(
+  //   (state) => state.userReducers.loginScreen.data
+  // );
+  // const loginNetworkErr = useSelector(
+  //   (state) => state.userReducers.loginScreen.errorMsg
+  // );
+  // const [errorString, setErrorString] = React.useState("");
+  // const [userName, setUserName] = React.useState("");
+  // const [password, setPassword] = React.useState("");
+  // const [company, setCompany] = React.useState("");
+  // const [data, setData] = React.useState([]);
+  // //Redux Action Called
+  // const dispatch = useDispatch();
+  // const userLogin = () => {
+  //   dispatch(
+  //     loginUser({
+  //       params: {
+  //         username: userName,
+  //         password: password,
+  //         // schoolName1: data.find((item) => item.branchName == school)?.id,
+  //         userType:2
+  //       },
+  //       navigation: navigation,
+  //     })
+  //   );
+  // };
 
-  useEffect(() => {
-    getCompanies();
-  }, []);
-  useEffect(() => {
-    loginResponse ? setErrorString(loginResponse.message) : null;
-    loginNetworkErr ? setErrorString(loginNetworkErr.message) : null;
-  }, [loginResponse, loginNetworkErr]);
+  // useEffect(() => {
+  //   getCompanies();
+  // }, []);
+  // useEffect(() => {
+  //   loginResponse ? setErrorString(loginResponse.message) : null;
+  //   loginNetworkErr ? setErrorString(loginNetworkErr.message) : null;
+  // }, [loginResponse, loginNetworkErr]);
 
-  // console.log(loginResponse, "LOgin screen error");
-  // console.log(loginNetworkErr, "LOgin network error");
+  // // console.log(loginResponse, "LOgin screen error");
+  // // console.log(loginNetworkErr, "LOgin network error");
 
-  const getCompanies = async () => {
-    try {
-      const res = await Api.get(urls.GET_ALL_COMPANIES);
-      console.log("get compsnies", res);
-      if (res && res.success == true) {
-        setData(res.data)
-      } else {
-      }
-    } catch (error) {}
-  };
+  // const getCompanies = async () => {
+  //   try {
+  //     const res = await Api.get(urls.GET_ALL_COMPANIES);
+  //     console.log("get compsnies", res);
+  //     if (res && res.success == true) {
+  //       setData(res.data)
+  //     } else {
+  //     }
+  //   } catch (error) {}
+  // };
 
-  const Validation = (item) => {
-    // setErrorString("Please Enter Username and
-    // navigation.replace(routeName.BOTTOM_TABS);
+  // const Validation = (item) => {
+  //   // setErrorString("Please Enter Username and
+  //   // navigation.replace(routeName.BOTTOM_TABS);
 
-    // setErrorString("Please Enter Username and Password to proceed");
-    setErrorString("");
-    if (userName === "" && password === "" ) {
-      setErrorString("All fields are required");
-    } else if (userName === "" || userName === null) {
-      setErrorString("Username is missing");
-    } else if (password === "") {
-      setErrorString("Password is missing");
-    }
-    //  else if (company === "") {
-    //   setErrorString("Please select school");
-    // } 
-    else {
-      // console.log("ErrorMessage:yhyuu ");
-      userLogin();
-      setErrorString("");
-    }
-  };
-  function removeEmojis (string) {
-    var regex = /(?:[\u2700-\u27bf]|(?:\ud83c[\udde6-\uddff]){2}|[\ud800-\udbff][\udc00-\udfff]|[\u0023-\u0039]\ufe0f?\u20e3|\u3299|\u3297|\u303d|\u3030|\u24c2|\ud83c[\udd70-\udd71]|\ud83c[\udd7e-\udd7f]|\ud83c\udd8e|\ud83c[\udd91-\udd9a]|\ud83c[\udde6-\uddff]|\ud83c[\ude01-\ude02]|\ud83c\ude1a|\ud83c\ude2f|\ud83c[\ude32-\ude3a]|\ud83c[\ude50-\ude51]|\u203c|\u2049|[\u25aa-\u25ab]|\u25b6|\u25c0|[\u25fb-\u25fe]|\u00a9|\u00ae|\u2122|\u2139|\ud83c\udc04|[\u2600-\u26FF]|\u2b05|\u2b06|\u2b07|\u2b1b|\u2b1c|\u2b50|\u2b55|\u231a|\u231b|\u2328|\u23cf|[\u23e9-\u23f3]|[\u23f8-\u23fa]|\ud83c\udccf|\u2934|\u2935|[\u2190-\u21ff])/g;
-    return string.replace(regex, '');
-  }
+  //   // setErrorString("Please Enter Username and Password to proceed");
+  //   setErrorString("");
+  //   if (userName === "" && password === "" ) {
+  //     setErrorString("All fields are required");
+  //   } else if (userName === "" || userName === null) {
+  //     setErrorString("Username is missing");
+  //   } else if (password === "") {
+  //     setErrorString("Password is missing");
+  //   }
+  //   //  else if (company === "") {
+  //   //   setErrorString("Please select school");
+  //   // } 
+  //   else {
+  //     // console.log("ErrorMessage:yhyuu ");
+  //     userLogin();
+  //     setErrorString("");
+  //   }
+  // };
+  // function removeEmojis (string) {
+  //   var regex = /(?:[\u2700-\u27bf]|(?:\ud83c[\udde6-\uddff]){2}|[\ud800-\udbff][\udc00-\udfff]|[\u0023-\u0039]\ufe0f?\u20e3|\u3299|\u3297|\u303d|\u3030|\u24c2|\ud83c[\udd70-\udd71]|\ud83c[\udd7e-\udd7f]|\ud83c\udd8e|\ud83c[\udd91-\udd9a]|\ud83c[\udde6-\uddff]|\ud83c[\ude01-\ude02]|\ud83c\ude1a|\ud83c\ude2f|\ud83c[\ude32-\ude3a]|\ud83c[\ude50-\ude51]|\u203c|\u2049|[\u25aa-\u25ab]|\u25b6|\u25c0|[\u25fb-\u25fe]|\u00a9|\u00ae|\u2122|\u2139|\ud83c\udc04|[\u2600-\u26FF]|\u2b05|\u2b06|\u2b07|\u2b1b|\u2b1c|\u2b50|\u2b55|\u231a|\u231b|\u2328|\u23cf|[\u23e9-\u23f3]|[\u23f8-\u23fa]|\ud83c\udccf|\u2934|\u2935|[\u2190-\u21ff])/g;
+  //   return string.replace(regex, '');
+  // }
   return (
     <View style={styles.container}>
       
@@ -147,28 +148,29 @@ const Login = ({ navigation }) => {
                   height={hp(6.5)}
                   padding={[0, 0, 0, 25]}
                   margin={[20, 0, 5, 0]}
-                  onChnageText={(text) => setUserName(text)}
+                  // onChnageText={(text) => setUserName(text)}
                   leftIcon={globalPath.Email}
                 />
 
                 <Input
                   placeholder={"Password"}
-                  value={removeEmojis(password)}
+                  // value={removeEmojis(password)}
                   width={wp(90)}
                   height={hp(6.5)}
                   padding={[0, 0, 0, 25]}
                   margin={[20, 0, 5, 0]}
                   secureTextEntry
                   // keyboardType={Platform.OS === 'ios' ? 'ascii-capable' : 'visible-password'}
-                  onChnageText={(text) => setPassword(text)}
+                  // onChnageText={(text) => setPassword(text)}
                   leftIcon={globalPath.Lock}
                 />
-                <ResponsiveText color={colors.red} margin={[20, 0, 0, 10]}>{errorString}</ResponsiveText>
+                {/* <ResponsiveText color={colors.red} margin={[20, 0, 0, 10]}>{errorString}</ResponsiveText> */}
                 <RnButton
                   backgroundColor={colors.blue1}
                   margin={[50, 0, 0, 0]}
                   title={"Sign in"}
-                  onPress={() => Validation()}
+                  // onPress={() => Validation()}
+                  onPress={()=>navigation.navigate(routeName.DASHBOARD)}
                 />
               
               </View>
@@ -178,11 +180,11 @@ const Login = ({ navigation }) => {
           </View>
          
         </View>
-        {loading?
+        {/* {loading?
                  <Loader/>
                    :
                    undefined
-                }
+                } */}
       </ImageBackground>
     
     </View>
