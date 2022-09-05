@@ -74,7 +74,7 @@ const Input = ({
           padding ? handlePadding(padding) : undefined,
           props.style,
           height && { height },
-          width && { width },
+          { width: width ? width : wp(90) },
           {
             zIndex: zIndex,
             backgroundColor: backgroundColor ? backgroundColor : colors.white,
@@ -96,11 +96,10 @@ const Input = ({
           value={value && value}
           {...props} // Inherit any props passed to it; e.g., multiline, numberOfLines below
           editable={props.editable}
-
           // secureTextEntry={false}
           style={[
             fontSize && { fontSize },
-            inputHeight && {height: inputHeight },
+            inputHeight && { height: inputHeight },
 
             styles.Input,
             fontFamily && { fontFamily: Fonts[fontFamily] },
@@ -145,7 +144,7 @@ const Input = ({
         {searchBox && (
           <TouchableOpacity
             style={styles.showPasswordBtn}
-          // onPress={updateSecureTextEntry}
+            // onPress={updateSecureTextEntry}
           >
             <Feather name="search" size={20} style={styles.Feather} />
           </TouchableOpacity>
@@ -163,8 +162,8 @@ const styles = StyleSheet.create({
     display: "flex",
     alignItems: "center",
     backgroundColor: colors.green2,
-    borderRadius: wp(6),
-    paddingLeft: 10,
+    borderRadius: wp(3),
+    paddingLeft: 20,
   },
   Input: {
     borderRadius: wp(1.5),
@@ -173,7 +172,7 @@ const styles = StyleSheet.create({
     fontFamily: Fonts.Regular,
     color: colors.black,
     // height:wp(30),
-    textAlignVertical: 'top'
+    textAlignVertical: "top",
   },
   Feather: {
     marginRight: 5,

@@ -88,7 +88,7 @@ const Login = ({ navigation }) => {
   //   }
   //   //  else if (company === "") {
   //   //   setErrorString("Please select school");
-  //   // } 
+  //   // }
   //   else {
   //     // console.log("ErrorMessage:yhyuu ");
   //     userLogin();
@@ -101,92 +101,51 @@ const Login = ({ navigation }) => {
   // }
   return (
     <View style={styles.container}>
-      
-      <ImageBackground
-        // source={globalPath.background}
-        resizeMode="cover"
-        style={styles.image}
+      <View>
+
+      <ResponsiveText
+        fontFamily={Fonts.Bold}
+        size={8}
+        color={colors.primary}
+        weight={'bold'}
       >
-        
-        <View style={{ marginHorizontal: wp(0) }}>
-          <View style={styles.screeninfo}>
-            <Image style={styles.logo} source={globalPath.logo} />
-          </View>
-          <View style={{ backgroundColor: colors.blue1, flex: 1 }}>
-            <View style={styles.footer}>
-              <ResponsiveText
-                margin={[20, 0, 0, 30]}
-                fontFamily={Fonts.Bold}
-                size={8}
-                color={colors.blue1}
-              >
-                Sign In
-              </ResponsiveText>
-              <ResponsiveText
-                margin={[0, 0, 0, 30]}
-                fontFamily={Fonts.Bold}
-                size={3.5}
-                color={colors.grey1}
-              >
-                Enter your phone number or Email address for sign in.
-              </ResponsiveText>
-              <View style={{ marginTop: hp(5), marginHorizontal: wp(5) }}>
-                {/* <DropDown
-                  data={data.map((v)=>v.name)}
-                  defaultButtonText={"Select Your company"}
-                  leftIcon={globalPath.arrow}
-                  ren
+        Sign In
+      </ResponsiveText>
+      <ResponsiveText
+        fontFamily={Fonts.Bold}
+        margin={[10,0,0,0]}
+        size={3.5}
+        color={colors.grey1}
+      >
+        Enter your phone number or Email address for sign in.
+      </ResponsiveText>
+      </View>
 
-                  // onSelect={(item) => {
-                  //   console.log("school", item);
-                  //   setSchool(item);
-                /> */}
+      <Input
+        placeholder={"Email or phone number"}
+        height={hp(6.5)}
+        margin={[20, 0, 5, 0]}
+        // onChnageText={(text) => setUserName(text)}
+        leftIcon={globalPath.Email}
+      />
 
-                <Input
-                  placeholder={"Email or phone number"}
-                  width={wp(90)}
-                  height={hp(6.5)}
-                  padding={[0, 0, 0, 25]}
-                  margin={[20, 0, 5, 0]}
-                  // onChnageText={(text) => setUserName(text)}
-                  leftIcon={globalPath.Email}
-                />
-
-                <Input
-                  placeholder={"Password"}
-                  // value={removeEmojis(password)}
-                  width={wp(90)}
-                  height={hp(6.5)}
-                  padding={[0, 0, 0, 25]}
-                  margin={[20, 0, 5, 0]}
-                  secureTextEntry
-                  // keyboardType={Platform.OS === 'ios' ? 'ascii-capable' : 'visible-password'}
-                  // onChnageText={(text) => setPassword(text)}
-                  leftIcon={globalPath.Lock}
-                />
-                {/* <ResponsiveText color={colors.red} margin={[20, 0, 0, 10]}>{errorString}</ResponsiveText> */}
-                <RnButton
-                  backgroundColor={colors.blue1}
-                  margin={[50, 0, 0, 0]}
-                  title={"Sign in"}
-                  // onPress={() => Validation()}
-                  onPress={()=>navigation.navigate(routeName.DASHBOARD)}
-                />
-              
-              </View>
-                
-            </View>
-         
-          </View>
-         
-        </View>
-        {/* {loading?
-                 <Loader/>
-                   :
-                   undefined
-                } */}
-      </ImageBackground>
-    
+      <Input
+        placeholder={"Password"}
+        // value={removeEmojis(password)}
+        height={hp(6.5)}
+        margin={[20, 0, 5, 0]}
+        secureTextEntry
+        // keyboardType={Platform.OS === 'ios' ? 'ascii-capable' : 'visible-password'}
+        // onChnageText={(text) => setPassword(text)}
+        leftIcon={globalPath.Lock}
+      />
+      {/* <ResponsiveText color={colors.red} margin={[20, 0, 0, 10]}>{errorString}</ResponsiveText> */}
+      <RnButton
+        margin={[50, 0, 0, 0]}
+        title={"Sign in"}
+        // onPress={() => Validation()}
+        // onPress={() => navigation.navigate(routeName.DASHBOARD)}
+      />
     </View>
   );
 };
@@ -194,16 +153,11 @@ export default Login;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.white,
-  },
-  footer: {
-    flex: 1,
     backgroundColor: colors.grey,
-    // borderTopLeftRadius: 30,
-    borderTopRightRadius: 30,
-    // alignItems: 'center'
-    // marginTop:hp(0.5)
+    justifyContent: "center",
+    alignItems:'center'
   },
+
   image: {
     flex: 1,
     justifyContent: "center",
@@ -213,7 +167,7 @@ const styles = StyleSheet.create({
     flex: 0.4,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: colors.blue1,
+    backgroundColor: colors.primary,
     borderBottomLeftRadius: 35,
   },
   logo: {

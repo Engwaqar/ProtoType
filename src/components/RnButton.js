@@ -35,7 +35,7 @@ const RnButton = ({
           flexDirection: "row",
           // width: width ? width : undefined,
           // height: height ? height : undefined,
-          borderRadius: borderRadius ? borderRadius : 30,
+          borderRadius: borderRadius ? borderRadius : 15,
         },
       ]}
       {...props}
@@ -60,10 +60,10 @@ export default RnButton;
 const styles = StyleSheet.create({
   Btn: {
     padding: 3,
-    borderRadius: 7,
-    width: "100%",
+    borderRadius: 15,
+    width: "90%",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: colors.yellow,
+    backgroundColor: colors.primary,
   },
 });
