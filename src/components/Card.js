@@ -17,7 +17,9 @@ const styles = StyleSheet.create({
     elevation: 9,
     shadowColor: colors.green,
     shadowOpacity: 0.2,
-    padding: 5,
+     padding: 20,
+    paddingVertical:15,
+    paddingHorizontal:10,
     shadowOffset: {
       width: 0,
       height: 0,

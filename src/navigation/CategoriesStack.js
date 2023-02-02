@@ -1,12 +1,13 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
 import { routeName } from "../constants/routeName";
-import Home from "../screens/Home/Home";
+import AllCategoriesList from "../screens/Categories/AllCategoriesList";
+
  
 
 const Stack = createNativeStackNavigator();
 
-function HomeStack() {
+function CategoriesStack() {
   return (
     <Stack.Navigator
       screenOptions={{
@@ -14,10 +15,10 @@ function HomeStack() {
       }}
       initialRouteName={routeName.HOME}
     >
-       <Stack.Screen name={routeName.HOME} component={Home} /> 
+       <Stack.Screen name={routeName.CATEGORY_LIST} component={AllCategoriesList} /> 
      
     </Stack.Navigator>
   );
 }
 
-export default HomeStack;
+export default CategoriesStack;

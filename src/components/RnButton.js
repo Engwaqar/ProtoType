@@ -60,7 +60,7 @@ export default RnButton;
 const styles = StyleSheet.create({
   Btn: {
     padding: 3,
-    borderRadius: 15,
+    borderRadius: 20,
     width: "90%",
     justifyContent: "center",
     alignItems: "center",

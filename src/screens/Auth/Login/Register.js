@@ -20,7 +20,7 @@ import urls from "../../../redux/lib/urls";
 import Fonts from "../../../helpers/Fonts";
 import Loader from "../../../components/loader";
 import { routeName } from "../../../constants/routeName";
-const Login = ({ navigation }) => {
+const Register = ({ navigation }) => {
   // const loading = useSelector(
   //   (state) => state.userReducers.loginScreen.refreshing
   // );
@@ -101,28 +101,34 @@ const Login = ({ navigation }) => {
   // }
   return (
     <View style={styles.container}>
-       <Image style={styles.logo} source={globalPath.logo}/>
       <View>
+
       <ResponsiveText
-      textAlign={'center'}
+    //   textAlign={'center'}
         fontFamily={Fonts.Bold}
         size={6}
         color={colors.black}
-        // weight={'bold'}
+        weight={'bold'}
       >
-        ONLINE STORE
+        Create New Account
       </ResponsiveText>
       <ResponsiveText
       alignItems={'center'}
         fontFamily={Fonts.Bold}
         margin={[10,0,0,0]}
-        size={3}
+        size={5}
         color={colors.grey1}
       >
-        Enter your phone number or Email address for sign in.
+        Enter your details to create account.
       </ResponsiveText>
       </View>
-
+      <Input
+        placeholder={"Name"}
+        height={hp(6.5)}
+        margin={[20, 0, 5, 0]}
+        // onChnageText={(text) => setUserName(text)}
+        leftIcon={globalPath.Email}
+      />
       <Input
         placeholder={"Email"}
         height={hp(6.5)}
@@ -154,7 +160,7 @@ const Login = ({ navigation }) => {
       {/* <ResponsiveText color={colors.red} margin={[20, 0, 0, 10]}>{errorString}</ResponsiveText> */}
       <RnButton
         margin={[50, 0, 0, 0]}
-        title={"Login"}
+        title={"Sign up"}
         // onPress={() => Validation()}
          onPress={() => navigation.replace(routeName.BOTTOM_TABS)}
       />
@@ -166,14 +172,14 @@ const Login = ({ navigation }) => {
         color={colors.grey1}
       >
         Don't have an account yet?
-        <TouchableOpacity onPress={() => navigation.replace(routeName.REGISTER)}>
-        <ResponsiveText size={4.5}margin={[5,0,0,0]}  color={colors.yellow1}> Sign In</ResponsiveText>
+        <TouchableOpacity onPress={() => navigation.replace(routeName.LOGIN)}>
+        <ResponsiveText size={4.5} color={colors.yellow1}> Login</ResponsiveText>
         </TouchableOpacity>
       </ResponsiveText>
     </View>
   );
 };
-export default Login;
+export default Register;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -196,7 +202,7 @@ const styles = StyleSheet.create({
   },
   logo: {
     height: hp(20),
-    width: wp(50),
+    width: wp(40),
     resizeMode: "contain",
     // marginBottom: 20,
     alignItems: "center",

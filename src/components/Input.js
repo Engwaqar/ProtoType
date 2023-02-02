@@ -162,7 +162,7 @@ const styles = StyleSheet.create({
     display: "flex",
     alignItems: "center",
     backgroundColor: colors.green2,
-    borderRadius: wp(3),
+    borderRadius: wp(5),
     paddingLeft: 20,
   },
   Input: {

@@ -16,6 +16,9 @@ import { globalPath } from "../constants/globalPath";
 import { colors } from "../constants/colorsPallet";
 import { wp } from "../helpers/Responsiveness";
 import HomeStack from "./HomeStack";
+import Home from "../screens/Home/Home";
+import Icon from "../components/Icon";
+import AllCategoriesList from "../screens/Categories/AllCategoriesList";
 
 const Tab = createBottomTabNavigator();
 
@@ -51,22 +54,22 @@ export default function BottomTabs() {
         // sceneContainerStyle={{marginHorizontal:20,backgroundColor:'red'}}
         screenOptions={{
           tabBarHideOnKeyboard:true,
-          headerShown: false,
-          tabBarShowLabel: false,
-          tabBarActiveTintColor: colors.red,
-          tabBarInactiveTintColor: colors.white,
+          headerShown: true,
+          tabBarShowLabel: true,
+          tabBarActiveTintColor: colors.primary,
+          tabBarInactiveTintColor: colors.grey5,
 
           // Floating Tab Bar...
-          tabBarLabelStyle: {
-            fontSize: 10,
-            fontWeight: "bold",
-          },
+          // tabBarLabelStyle: {
+          //   fontSize: 10,
+          //   fontWeight: "bold",
+          // },
           tabBarStyle: {
-            backgroundColor: colors.blue1,
+            backgroundColor: colors.grey,
             height: 55,
-            borderRadius: 10,
-            borderBottomLeftRadius:20,
-            borderBottomRightRadius:20,
+            // borderRadius: 10,
+            // borderBottomLeftRadius:20,
+            // borderBottomRightRadius:20,
             // Shadow...
             shadowColor: colors.black,
             shadowOpacity: 0.1,
@@ -74,9 +77,9 @@ export default function BottomTabs() {
               width: 40,
               height: 90,
             },
-            marginBottom:isKeyboardVisible?-40:20,
+            // marginBottom:isKeyboardVisible?-40:20,
             paddingHorizontal: 20,
-            marginHorizontal: wp(8),
+            marginHorizontal: wp(2),
             position: "absolute",
             // justifyContent:'center',
             paddingTop: Platform.OS == "ios" ? 20 : 0,
@@ -106,19 +109,19 @@ export default function BottomTabs() {
           }}
         ></Tab.Screen> */}
         <Tab.Screen
-          name={"HomeStack"}
-          component={History}
+          name={"Home"}
+          component={Home}
           options={{
             tabBarIcon: ({ focused }) => (
-              <View style={focused ? styles.TouchableTab : {}}>
-                <View style={focused ? styles.ActiveTab : styles.inActiveTab}>
+              <View >
+                <View>
                   <Image
-                    source={globalPath.dashboard}
+                    source={globalPath.home}
                     resizeMode={"contain"}
                     style={{
-                      width: 22,
-                      height: 22,
-                      tintColor: "white",
+                      width: 30,
+                      height: 30,
+                      tintColor:focused? colors.primary:'grey',
                     }}
                   ></Image>
                 </View>
@@ -126,71 +129,71 @@ export default function BottomTabs() {
             ),
           }}
         ></Tab.Screen>
-        {/* <Tab.Screen
-          name={"REPORT"}
-          component={ReportStack}
+          <Tab.Screen
+          name={"Categories"}
+          component={AllCategoriesList}
           options={{
             tabBarIcon: ({ focused }) => (
-              <View style={focused ? styles.TouchableTab : {}}>
-                <View style={focused ? styles.ActiveTab : styles.inActiveTab}>
+              <View >
+                <View>
                   <Image
-                    source={globalPath.report}
+                    source={globalPath.Category}
                     resizeMode={"contain"}
                     style={{
-                      width: 22,
-                      height: 22,
-                      tintColor: "white",
+                      width: 30,
+                      height: 30,
+                      tintColor:focused? colors.primary:'grey',
                     }}
                   ></Image>
                 </View>
               </View>
             ),
           }}
-        ></Tab.Screen> */}
-
-        {/* <Tab.Screen
-          name={"History"}
+        >
+        </Tab.Screen>
+        <Tab.Screen
+          name={"Notification"}
           component={History}
           options={{
             tabBarIcon: ({ focused }) => (
-              <View style={focused ? styles.TouchableTab : {}}>
-                <View style={focused ? styles.ActiveTab : styles.inActiveTab}>
+              <View >
+                <View style={styles.inActiveTab}>
                   <Image
-                    source={globalPath.history}
+                    source={globalPath.Notifi}
                     resizeMode={"contain"}
                     style={{
-                      width: 22,
-                      height: 22,
-                      tintColor: "white",
+                      width: 30,
+                      height: 30,
+                      tintColor:focused? colors.primary:'grey',
                     }}
                   ></Image>
                 </View>
               </View>
             ),
           }}
-        ></Tab.Screen> */}
+        ></Tab.Screen>
 
-        {/* <Tab.Screen
-          name={"Notifications"}
-          component={PresentTeam}
+        <Tab.Screen
+          name={"My Account"}
+          component={Report}
           options={{
             tabBarIcon: ({ focused }) => (
-              <View style={focused ? styles.TouchableTab : {}}>
-                <View style={focused ? styles.ActiveTab : styles.inActiveTab}>
+              <View >
+                <View>
                   <Image
-                    source={globalPath.history}
+                    source={globalPath.User}
                     resizeMode={"contain"}
                     style={{
-                      width: 22,
-                      height: 22,
-                      tintColor: "white",
+                      width: 30,
+                      height: 30,
+                      tintColor:focused? colors.primary:'grey',
                     }}
                   ></Image>
                 </View>
               </View>
             ),
           }}
-        ></Tab.Screen> */}
+        ></Tab.Screen>
       </Tab.Navigator>
     </View>
   );
@@ -227,9 +230,9 @@ const styles = StyleSheet.create({
   ActiveTab: {
     width: 60,
     height: 60,
-    backgroundColor: colors.blue1,
-    borderRadius: 30,
-    borderWidth: 4,
+    backgroundColor: colors.primary,
+    // borderRadius: 30,
+    // borderWidth: 4,
     borderColor: colors.white,
     justifyContent: "center",
     alignItems: "center",

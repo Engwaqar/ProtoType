@@ -14,7 +14,7 @@ const App = () => {
           {/* <StatusBar hidden />  */}
           <StatusBar
             barStyle="light-content"
-            backgroundColor="transparent"
+            backgroundColor="black"
             translucent={true}
           />
           <Router />
