@@ -1,4 +1,4 @@
-package com.ordertaking.newarchitecture;
+package com.groceryshop.newarchitecture;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
@@ -19,9 +19,9 @@ import com.facebook.react.fabric.CoreComponentsRegistry;
 import com.facebook.react.fabric.EmptyReactNativeConfig;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.uimanager.ViewManagerRegistry;
-import com.ordertaking.BuildConfig;
-import com.ordertaking.newarchitecture.components.MainComponentsRegistry;
-import com.ordertaking.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
+import com.groceryshop.BuildConfig;
+import com.groceryshop.newarchitecture.components.MainComponentsRegistry;
+import com.groceryshop.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import java.util.ArrayList;
 import java.util.List;
 
