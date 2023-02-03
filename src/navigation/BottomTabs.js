@@ -54,7 +54,7 @@ export default function BottomTabs() {
         // sceneContainerStyle={{marginHorizontal:20,backgroundColor:'red'}}
         screenOptions={{
           tabBarHideOnKeyboard:true,
-          headerShown: true,
+          headerShown: false,
           tabBarShowLabel: true,
           tabBarActiveTintColor: colors.primary,
           tabBarInactiveTintColor: colors.grey5,

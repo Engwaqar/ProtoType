@@ -19,89 +19,170 @@ const AllCategoriesList = () => {
         {
             id: 1,
             title: 'Fruits & Veg',
-            url: require('../../assets/icons/menu.png'),
+            url: require('../../assets/icons/F.png'),
+            product: '245 Products'
         },
 
         {
             id: 2,
             title: 'Beverages',
-            url: require('../../assets/icons/menu.png'),
-
+            url: require('../../assets/icons/Beverage.png'),
+            product: '245 Products'
         },
         {
             id: 3,
             title: 'Household',
-            url: require('../../assets/icons/menu.png'),
-
+            url: require('../../assets/icons/cimage.png'),
+            product: '245 Products'
         },
         {
             id: 4,
             title: 'Personal Care',
-            url: require('../../assets/icons/menu.png'),
-
+            url: require('../../assets/icons/PCare.png'),
+            product: '245 Products'
         },
         {
             id: 5,
             title: 'Branded Foods',
-            url: require('../../assets/icons/menu.png'),
-
+            url: require('../../assets/icons/Food.png'),
+            product: '245 Products'
         },
 
 
         {
             id: 6,
             title: 'Bakery',
-            url: require('../../assets/icons/menu.png'),
-
+            url: require('../../assets/icons/cake.png'),
+            product: '245 Products'
         },
         {
             id: 7,
             title: 'Eggs & Meat',
-            url: require('../../assets/icons/menu.png'),
-
+            url: require('../../assets/icons/eggs.png'),
+            product: '245 Products'
         },
-
+        {
+            id: 7,
+            title: 'Oil & Maslas',
+            url: require('../../assets/icons/oils.png'),
+            product: '245 Products'
+        },
+        {
+            id: 7,
+            title: 'Staples',
+            url: require('../../assets/icons/eggs.png'),
+            product: '245 Products'
+        },
+        {
+            id: 7,
+            title: 'Tea & Coffee',
+            url: require('../../assets/icons/Tea.png'),
+            product: '245 Products'
+        },
+        {
+            id: 7,
+            title: 'Baby Care',
+            url: require('../../assets/icons/babycare.png'),
+            product: '245 Products'
+        },
+        {
+            id: 7,
+            title: 'Packaged food',
+            url: require('../../assets/icons/PakegedFood.png'),
+            product: '245 Products'
+        },
+        {
+            id: 7,
+            title: 'Tea & Coffee',
+            url: require('../../assets/icons/Tea.png'),
+            product: '245 Products'
+        },
+        {
+            id: 7,
+            title: 'Baby Care',
+            url: require('../../assets/icons/babycare.png'),
+            product: '245 Products'
+        },
+        {
+            id: 7,
+            title: 'Packaged food',
+            url: require('../../assets/icons/PakegedFood.png'),
+            product: '245 Products'
+        },
 
 
     ];
     return (
-        <View style={styles.footer}>
-            <View style={{ flexDirection: 'row', flexWrap: 'wrap', marginTop: 15, marginHorizontal: 12 }}>
-                {Data.map((item) => {
-                    return (
-                        <TouchableOpacity 
-                        // onPress={() => navigation.navigate(routeName.ALL_ITEM_LIST, { item: item.complainName, Id: item.id })}
-                        >
-                            <Card style={{ width: wp(0), alignItems: 'center', justifyContent: 'center', height: wp(35), margin: 5, }}>
-                                <Icon
-                                    size={40}
-                                    source={item.url
-                                        // item.complainName == "Electricity" 
-                                        // ?globalPath.Electricity 
-                                        // :item.complainName == "Gas" 
-                                        // ?globalPath.Gas 
-                                        // :item.complainName == "Internet" 
-                                        // ?globalPath.Internet
-                                        // :item.complainName == "Water"
-                                        //  ?globalPath.Water 
-                                        //  :globalPath.Water
+        <SafeAreaView style={styles.container} edges={["top", "left", "right"]}> 
+        <ChatHeader
+        title="Categories"
+        />      
+            <View style={{ marginTop: 10, marginHorizontal: 12}}>
+                <FlatList
+                    data={Data}
+                    // key={'_'}
+                    keyExtractor={(item, index) => 'key' + index}
+                    // horizontal={false}
+                    numColumns={3}
+                    style={{height: '150%'}}
+                    renderItem={({ item }) => {
+                        return (
+                            <TouchableOpacity
+                            // onPress={() => navigation.navigate(routeName.ALL_ITEM_LIST, { item: item.complainName, Id: item.id })}
+                            >
+                                <Card style={{ width: wp(10), alignItems: 'center', justifyContent: 'center', height: wp(35), margin: 5, }}>
 
-                                    }
-                                >
-                                </Icon>
-                                <ResponsiveText
-                                    margin={[0, 0, 0, 0]}
-                                    color={colors.black1}
-                                >{item.title}</ResponsiveText>
-                            </Card>
-                        </TouchableOpacity>
-                    )
-                })}
-            </View>
+                                    <Icon
+                                        tintColor={colors.primary}
+                                        size={40}
+                                        source={item.url
+                                            // item.complainName == "Electricity" 
+                                            // ?globalPath.Electricity 
+                                            // :item.complainName == "Gas" 
+                                            // ?globalPath.Gas 
+                                            // :item.complainName == "Internet" 
+                                            // ?globalPath.Internet
+                                            // :item.complainName == "Water"
+                                            //  ?globalPath.Water 
+                                            //  :globalPath.Water
+
+                                        }
+                                    >
+                                    </Icon>
+                                    <ResponsiveText
+                                        weight={'bold'}
+                                        textAlign={'center'}
+                                        margin={[5, 0, 0, 0]}
+                                        color={colors.black1}
+                                    >{item.title}
+                                    </ResponsiveText>
+                                    <ResponsiveText
+
+                                        margin={[5, 0, 0, 0]}
+                                        color={colors.black1}
+                                        textAlign={'center'}
+                                    >{item.product}
+                                    </ResponsiveText>
+
+                                </Card>
+
+                            </TouchableOpacity>
+
+                        )
+                    }}
+                />    
+           
         </View>
+        </SafeAreaView>
+
     )
 }
 
 export default AllCategoriesList
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        // backgroundColor: colors.secondary,
+    },
+})

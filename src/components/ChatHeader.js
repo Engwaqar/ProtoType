@@ -9,7 +9,7 @@ import { wp } from "../helpers/Responsiveness";
 export default function ChatHeader(props) {
 
   return (
-    <View style={{ flexDirection: "row", alignItems: "center", margin: wp(4) }}>
+    <View style={{height:(wp(15)) ,alignItems: "center", margin: wp(0),backgroundColor:colors.primary,marginTop:"7.8%" }}>
       <TouchableOpacity
           onPress={() => props.navigation.goBack()}
       >
@@ -24,20 +24,17 @@ export default function ChatHeader(props) {
           alignItems: "center",
           marginHorizontal: 10,
         }}
-      >
+       >
         <Icon
-          style={{ marginTop: 4 }}
-          borderRadius={30}
-          size={50}
+          style={{ marginTop: 0 }}
+          // borderRadius={30}
+          size={30}
           resizeMode={"contain"}
-          source={globalPath.users}
+          source={globalPath.Notifi}
         />
-        <View style={{ flex: 1, marginLeft: 15 }}>
-          <ResponsiveText color={colors.white} size={4}>
+        <View style={{ flex: 1, }}>
+          <ResponsiveText textAlign={'center'} weight={'bold'} color={colors.white} size={6}>
             {props.title}
-          </ResponsiveText>
-          <ResponsiveText color={colors.lightGrey} size={2.5}>
-            {props.status}
           </ResponsiveText>
         </View>
       </View>
