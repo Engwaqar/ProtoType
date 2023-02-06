@@ -5,7 +5,7 @@ import { wp } from "../helpers/Responsiveness";
 
 const Card = (props) => {
   return (
-    <View style={[styles.container, { flexDirection: props.flexDirection }]}>
+    <View style={[styles.container, { flexDirection: props.flexDirection },props.style?props.style:{}]}>
       {props.children}
     </View>
   );

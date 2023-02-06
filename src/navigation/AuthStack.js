@@ -4,6 +4,9 @@ import { routeName } from '../constants/routeName';
 import Login from '../screens/Auth/Login/Login';
 import Register from '../screens/Auth/Login/Register';
 import Splash from '../screens/Auth/splash/Splash';
+import CategoryList from '../screens/Categories/CategoryList';
+import ProductDetail from '../screens/Categories/ProductDetail';
+import ShoppingCart from '../screens/Categories/ShoppingCart';
 import Home from '../screens/Home/Home';
 import BottomTabs from './BottomTabs';
 
@@ -23,11 +26,9 @@ function AuthStack() {
       <Stack.Screen name={routeName.REGISTER} component={Register} /> 
       <Stack.Screen name={routeName.BOTTOM_TABS} component={BottomTabs} /> 
       <Stack.Screen name={routeName.HOME} component={Home} /> 
-
-
-     
-
-
+      <Stack.Screen name={routeName.CATEGORY_LIST} component={CategoryList} /> 
+      <Stack.Screen name={routeName.PRODUCT_DETAIL} component={ProductDetail} /> 
+      <Stack.Screen name={routeName.SHOPPING_CART} component={ShoppingCart} /> 
     </Stack.Navigator>
   )
 }

@@ -9,14 +9,8 @@ import { wp } from "../helpers/Responsiveness";
 export default function ChatHeader(props) {
 
   return (
-    <View style={{height:(wp(15)) ,alignItems: "center", margin: wp(0),backgroundColor:colors.primary,marginTop:"7.8%" }}>
-      <TouchableOpacity
-          onPress={() => props.navigation.goBack()}
-      >
-        <Icon
-          source={globalPath.backArrow}
-        />
-      </TouchableOpacity>
+    <View style={{ height: (wp(15)), alignItems: "center", margin: wp(0), backgroundColor: colors.primary, marginTop: "7.8%" }}>
+
       <View
         style={{
           flexDirection: "row",
@@ -24,19 +18,47 @@ export default function ChatHeader(props) {
           alignItems: "center",
           marginHorizontal: 10,
         }}
-       >
-        <Icon
-          style={{ marginTop: 0 }}
-          // borderRadius={30}
-          size={30}
-          resizeMode={"contain"}
-          source={globalPath.Notifi}
-        />
+      >
+        {props.backbutton ? (
+        <TouchableOpacity onPress={() => props.navigation.goBack()}>
+          <Icon
+            size={40}
+            margin={[5, 0, 0, 10]}
+            tintColor={colors.white}
+            source={globalPath.backarrow}
+          />
+        </TouchableOpacity>
+      ) : null}
+        {/* <TouchableOpacity
+          onPress={() => props.navigation.goBack()}
+        >
+          <Icon
+            tintColor={colors.white}
+            size={40}
+            source={globalPath.Search}
+          />
+        </TouchableOpacity> */}
         <View style={{ flex: 1, }}>
-          <ResponsiveText textAlign={'center'} weight={'bold'} color={colors.white} size={6}>
+          <ResponsiveText textAlign={'center'} weight={'bold'} color={colors.white} size={5}>
             {props.title}
           </ResponsiveText>
         </View>
+        <Icon
+          style={{ marginHorizontal: 10 }}
+          // borderRadius={30}
+          tintColor={colors.white}
+          size={40}
+          resizeMode={"contain"}
+          source={globalPath.Search}
+        />
+        <Icon
+          tintColor={colors.white}
+          style={{ marginTop: 0 }}
+          // borderRadius={30}
+          size={40}
+          resizeMode={"contain"}
+          source={globalPath.AddToCart}
+        />
       </View>
       {/* <TouchableOpacity style={styles.btnBack}>
         <Icon size={15} source={globalPath.video} />
@@ -50,7 +72,7 @@ export default function ChatHeader(props) {
 
 const styles = StyleSheet.create({
 
-    btnBack:{
-        backgroundColor:colors.green5,padding:12,borderRadius:45,marginRight:5
-    }
+  btnBack: {
+    backgroundColor: colors.green5, padding: 12, borderRadius: 45, marginRight: 5
+  }
 });
