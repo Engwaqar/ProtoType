@@ -8,12 +8,12 @@ import moment from 'moment'
 const TextProfile = (props) => {
   return (
       <ResponsiveText
-        color={props.color}
-        weight={props.weight}
-        size={props.size}
-        margin={props.margin}
-        flex={props.flex}
-        justifyContent={props.justifyContent}
+        // color={props.color}
+        // weight={props.weight}
+        // size={props.size}
+        // margin={props.margin}
+        // flex={props.flex}
+        // justifyContent={props.justifyContent}
       >
         {props.Title}
       </ResponsiveText>

@@ -8,7 +8,7 @@ import {
   StatusBar,
 } from "react-native";
 import { colors } from "../constants/colorsPallet";
-import { iconPath } from "../constants/globalPath";
+import { globalPath, iconPath } from "../constants/globalPath";
 import { handleMargin, handlePadding } from "../constants/theme";
 import Fonts from "../helpers/Fonts";
 import { wp } from "../helpers/Responsiveness";
@@ -144,9 +144,16 @@ const Input = ({
         {searchBox && (
           <TouchableOpacity
             style={styles.showPasswordBtn}
-            // onPress={updateSecureTextEntry}
+          // onPress={updateSecureTextEntry}
           >
-            <Feather name="search" size={20} style={styles.Feather} />
+            {/* <Feather name="search" size={20} style={styles.Feather} /> */}
+            <Icon
+            margin={[0,15,0,0]}
+              tintColor={colors.grey5}
+              size={30}
+              source={globalPath.Search}
+            >
+            </Icon>
           </TouchableOpacity>
         )}
       </View>

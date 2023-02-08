@@ -15,8 +15,9 @@ import moment from 'moment';
 import Loader from "../../components/loader";
 import HomeHeader from '../../components/HomeHeader'
 import Input2 from '../../components/Input2'
+import Input from '../../components/Input';
 
-const Home = () => {
+const Home = ({navigation}) => {
   const Data = [
     {
       id: 1,
@@ -50,6 +51,7 @@ const Home = () => {
           ItemName="Categories"
           searchBox
         />
+         
         <View style={{ height: wp(42) }}>
           <ScrollView horizontal  >
             {Data.map((item) => {
@@ -114,7 +116,7 @@ const Home = () => {
                       textAlign={'center'}
                     >{item.price}
                     </ResponsiveText>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate(routeName.SHOPPING_CART)}>
                     <View style={{ marginHorizontal: 0, backgroundColor: colors.yellow, paddingHorizontal: 25, paddingVertical: 6, marginBottom: 20, borderRadius: 20, }}>
                       <ResponsiveText weight={'bold'} color={colors.white} size={2.9}>
                         Add To Cart
@@ -147,18 +149,7 @@ const Home = () => {
                     <Icon
                       // tintColor={colors.primary}
                       size={90}
-                      source={item.url
-                        // item.complainName == "Electricity" 
-                        // ?globalPath.Electricity 
-                        // :item.complainName == "Gas" 
-                        // ?globalPath.Gas 
-                        // :item.complainName == "Internet" 
-                        // ?globalPath.Internet
-                        // :item.complainName == "Water"
-                        //  ?globalPath.Water 
-                        //  :globalPath.Water
-
-                      }
+                      source={item.url}
                     >
                     </Icon>
                     <ResponsiveText
@@ -175,7 +166,7 @@ const Home = () => {
                       textAlign={'center'}
                     >{item.price}
                     </ResponsiveText>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate(routeName.SHOPPING_CART)}>
                     <View style={{ marginHorizontal: 0, backgroundColor: colors.yellow, paddingHorizontal: 25, paddingVertical: 6, marginBottom: 20, borderRadius: 20, }}>
                       <ResponsiveText weight={'bold'} color={colors.white} size={2.9}>
                         Add To Cart
@@ -208,18 +199,7 @@ const Home = () => {
                     <Icon
                       // tintColor={colors.primary}
                       size={90}
-                      source={item.url
-                        // item.complainName == "Electricity" 
-                        // ?globalPath.Electricity 
-                        // :item.complainName == "Gas" 
-                        // ?globalPath.Gas 
-                        // :item.complainName == "Internet" 
-                        // ?globalPath.Internet
-                        // :item.complainName == "Water"
-                        //  ?globalPath.Water 
-                        //  :globalPath.Water
-
-                      }
+                      source={item.url}
                     >
                     </Icon>
                     <ResponsiveText
@@ -236,7 +216,7 @@ const Home = () => {
                       textAlign={'center'}
                     >{item.price}
                     </ResponsiveText>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate(routeName.SHOPPING_CART)}>
                     <View style={{ marginHorizontal: 0, backgroundColor: colors.yellow, paddingHorizontal: 25, paddingVertical: 6, marginBottom: 20, borderRadius: 20, }}>
                       <ResponsiveText weight={'bold'} color={colors.white} size={2.9}>
                         Add To Cart

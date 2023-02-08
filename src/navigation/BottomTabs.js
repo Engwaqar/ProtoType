@@ -19,6 +19,7 @@ import HomeStack from "./HomeStack";
 import Home from "../screens/Home/Home";
 import Icon from "../components/Icon";
 import AllCategoriesList from "../screens/Categories/AllCategoriesList";
+import Profile from "../screens/MyAccount/Profile";
 
 const Tab = createBottomTabNavigator();
 
@@ -175,7 +176,7 @@ export default function BottomTabs() {
 
         <Tab.Screen
           name={"My Account"}
-          component={Report}
+          component={Profile}
           options={{
             tabBarIcon: ({ focused }) => (
               <View >

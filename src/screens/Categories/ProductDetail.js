@@ -30,103 +30,7 @@ const ProductDetail = ({ navigation, route }) => {
           setCount(count > 1 ? count - 1 : 1);
         }
       };
-    const Data = [
-        {
-            id: 1,
-            title: 'Fruits & Veg',
-            url: require('../../assets/icons/F.png'),
-            price: '$49.00',
-        },
-
-        {
-            id: 2,
-            title: 'Beverages',
-            url: require('../../assets/icons/Beverage.png'),
-            price: '$49.00',
-        },
-        {
-            id: 3,
-            title: 'Household',
-            url: require('../../assets/icons/cimage.png'),
-            price: '$49.00',
-        },
-        {
-            id: 4,
-            title: 'Personal Care',
-            url: require('../../assets/icons/PCare.png'),
-            price: '$49.00',
-        },
-        {
-            id: 5,
-            title: 'Branded Foods',
-            url: require('../../assets/icons/Food.png'),
-            price: '$49.00',
-        },
-
-
-        {
-            id: 6,
-            title: 'Bakery',
-            url: require('../../assets/icons/cake.png'),
-            price: '$49.00',
-        },
-        {
-            id: 7,
-            title: 'Eggs & Meat',
-            url: require('../../assets/icons/eggs.png'),
-            price: '$49.00',
-        },
-        {
-            id: 7,
-            title: 'Oil & Maslas',
-            url: require('../../assets/icons/oils.png'),
-            price: '$49.00',
-        },
-        {
-            id: 7,
-            title: 'Staples',
-            url: require('../../assets/icons/eggs.png'),
-            price: '$49.00',
-        },
-        {
-            id: 7,
-            title: 'Tea & Coffee',
-            url: require('../../assets/icons/Tea.png'),
-            price: '$49.00',
-        },
-        {
-            id: 7,
-            title: 'Baby Care',
-            url: require('../../assets/icons/babycare.png'),
-            product: '245 Products'
-        },
-        {
-            id: 7,
-            title: 'Packaged food',
-            url: require('../../assets/icons/PakegedFood.png'),
-            price: '$49.00',
-        },
-        {
-            id: 7,
-            title: 'Tea & Coffee',
-            url: require('../../assets/icons/Tea.png'),
-            product: '245 Products'
-        },
-        {
-            id: 7,
-            title: 'Baby Care',
-            url: require('../../assets/icons/babycare.png'),
-            price: '$49.00',
-        },
-        {
-            id: 7,
-            title: 'Packaged food',
-            url: require('../../assets/icons/PakegedFood.png'),
-            price: '$49.00',
-        },
-
-
-    ];
+   
     const Data1 = [
         {
             id: 1,
@@ -190,7 +94,7 @@ const ProductDetail = ({ navigation, route }) => {
                             <TouchableOpacity
                               onPress={() => updateCount("Dec")}
                              >
-                            <View style={{ backgroundColor: colors.grey5,paddingHorizontal:12,marginLeft:5}}>
+                            <View style={{ backgroundColor: colors.primary,paddingHorizontal:12,marginLeft:5}}>
                                 <ResponsiveText weight={'bold'} color={colors.white} size={6}>
                                     -
                                 </ResponsiveText>
@@ -213,7 +117,7 @@ const ProductDetail = ({ navigation, route }) => {
                             <TouchableOpacity
                               onPress={() => updateCount("Inc")}
                              >
-                            <View style={{ backgroundColor: colors.grey5, paddingHorizontal: 5,paddingHorizontal:10 }}>
+                            <View style={{ backgroundColor: colors.primary, paddingHorizontal: 5,paddingHorizontal:10 }}>
                                 <ResponsiveText weight={'bold'} color={colors.white} size={6}>
                                     +
                                 </ResponsiveText>

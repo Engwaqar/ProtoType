@@ -14,7 +14,7 @@ import urls from '../../redux/lib/urls'
 import Api from '../../redux/lib/api'
 import moment from 'moment';
 import Loader from "../../components/loader";
-const AllCategoriesList = ({navigation}) => {
+const AllCategoriesList = ({ navigation }) => {
     const Data = [
         {
             id: 1,
@@ -109,46 +109,53 @@ const AllCategoriesList = ({navigation}) => {
             url: require('../../assets/icons/PakegedFood.png'),
             product: '245 Products'
         },
-
+        {
+            id: 7,
+            title: 'Tea & Coffee',
+            url: require('../../assets/icons/Tea.png'),
+            product: '245 Products'
+        },
+        {
+            id: 7,
+            title: 'Baby Care',
+            url: require('../../assets/icons/babycare.png'),
+            product: '245 Products'
+        },
+        {
+            id: 7,
+            title: 'Packaged food',
+            url: require('../../assets/icons/PakegedFood.png'),
+            product: '245 Products'
+        },
 
     ];
     return (
-        <SafeAreaView style={styles.container} edges={["top", "left", "right"]}> 
-        <ChatHeader
-        title="Categories"
-        />      
-            <View style={{ marginTop: 10, marginHorizontal: 12}}>
+        <SafeAreaView style={styles.container} edges={["top", "left", "right"]}>
+            <ChatHeader
+                title="Categories"
+                navigation={navigation}
+
+            />
+            <View style={{ marginTop: 10, marginHorizontal: 12 }}>
                 <FlatList
                     data={Data}
                     // key={'_'}
                     keyExtractor={(item, index) => 'key' + index}
                     // horizontal={false}
                     numColumns={3}
-                    style={{height: '150%'}}
+                    style={{ height:hp(83) }}
                     renderItem={({ item }) => {
                         return (
                             <TouchableOpacity
-                         onPress={() => navigation.navigate(routeName.CATEGORY_LIST, 
-                             { item: item.title }
-                            )}
+                                onPress={() => navigation.navigate(routeName.CATEGORY_LIST,
+                                    { item: item.title }
+                                )}
                             >
                                 <Card>
-
                                     <Icon
                                         tintColor={colors.primary}
                                         size={40}
-                                        source={item.url
-                                            // item.complainName == "Electricity" 
-                                            // ?globalPath.Electricity 
-                                            // :item.complainName == "Gas" 
-                                            // ?globalPath.Gas 
-                                            // :item.complainName == "Internet" 
-                                            // ?globalPath.Internet
-                                            // :item.complainName == "Water"
-                                            //  ?globalPath.Water 
-                                            //  :globalPath.Water
-
-                                        }
+                                        source={item.url}
                                     >
                                     </Icon>
                                     <ResponsiveText
@@ -159,22 +166,19 @@ const AllCategoriesList = ({navigation}) => {
                                     >{item.title}
                                     </ResponsiveText>
                                     <ResponsiveText
-
                                         margin={[5, 0, 0, 0]}
                                         color={colors.black1}
                                         textAlign={'center'}
                                     >{item.product}
                                     </ResponsiveText>
-
                                 </Card>
-
                             </TouchableOpacity>
 
                         )
                     }}
-                />    
-           
-        </View>
+                />
+
+            </View>
         </SafeAreaView>
 
     )

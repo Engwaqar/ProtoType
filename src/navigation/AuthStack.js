@@ -5,9 +5,11 @@ import Login from '../screens/Auth/Login/Login';
 import Register from '../screens/Auth/Login/Register';
 import Splash from '../screens/Auth/splash/Splash';
 import CategoryList from '../screens/Categories/CategoryList';
+import PaymentMethod from '../screens/Categories/PaymentMethod';
 import ProductDetail from '../screens/Categories/ProductDetail';
 import ShoppingCart from '../screens/Categories/ShoppingCart';
 import Home from '../screens/Home/Home';
+import Profile from '../screens/MyAccount/Profile';
 import BottomTabs from './BottomTabs';
 
 const Stack = createNativeStackNavigator();
@@ -29,6 +31,9 @@ function AuthStack() {
       <Stack.Screen name={routeName.CATEGORY_LIST} component={CategoryList} /> 
       <Stack.Screen name={routeName.PRODUCT_DETAIL} component={ProductDetail} /> 
       <Stack.Screen name={routeName.SHOPPING_CART} component={ShoppingCart} /> 
+      <Stack.Screen name={routeName.PAYMENT_METHOD} component={PaymentMethod} /> 
+      <Stack.Screen name={routeName.PROFILE} component={Profile} /> 
+
     </Stack.Navigator>
   )
 }
