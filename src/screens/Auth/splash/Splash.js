@@ -46,7 +46,7 @@ const Splash = ({ navigation }) => {
             navigation.dispatch(
               CommonActions.reset({
                 index: 0,
-                routes: [{ name: routeName.LOGIN }],
+                routes: [{ name: routeName.SPLASH_SLIDER }],
               })
             );
           }, 2000);

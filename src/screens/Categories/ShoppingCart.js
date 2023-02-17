@@ -56,143 +56,119 @@ const ShoppingCart = ({ navigation, route }) => {
 
 
     ];
-    const button_style = (
-        <View style={{ justifyContent: 'center', flex: 1 }} >
-            <View
-                style={{
-                    alignSelf: 'center',
-                    backgroundColor: colors.yellow,
-                    height: hp(14),
-                    width: hp(15),
-                    //  borderRadius: 15,
-                    // marginRight: 10,
-                    justifyContent: 'center',
-                    // marginTop: '40%',
-                    alignItems: 'center',
-                    alignContent: 'center',
-                    // top: 40
-
-                }}
-            >
-                <Icon size={40} source={globalPath.DeleteIcon} tintColor={colors.white} />
-            </View>
-        </View>
-    );
     return (
         <ScrollView>
-        <SafeAreaView style={styles.container} edges={["top", "left", "right"]}>
-            <ChatHeader
-                backbutton
-                // title={title}
-                navigation={navigation}
-            />
-            {Data.map((item) => {
-                return (
-                    <Swipeout
-                    autoClose={true}
-                    style={{
-                        marginHorizontal: wp(0),
-
-                        marginTop: 0,
-                         backgroundColor: colors.lightGrey,
-                        // marginHorizontal: 10,
-                        // borderRadius: 10,
-                        justifyContent: 'center',
-                        alignItems: 'center'
-                    }}
-                    right={[
-                        {
-                            component: button_style,
-                            autoClose: true,
-                            backgroundColor: colors.white,
-                            // onPress: () => Delete_Notification(item.id)
-                        },
-                    ]}
-                >
-                    <View style={{ marginTop: 10, justifyContent: 'center', alignItems: 'center' }}>
-                        <Card flexDirection='row' style={{ width: wp(90), margin: 0, marginHorizontal: 10, top: 0,borderRadius:0 }}>
-                            <Icon margin={[0, 0, 0, 0]}
-                                size={100}
-                                source={item.url}>
-                            </Icon>
-                            <View style={{ flex: 1 }} >
-                                <ResponsiveText margin={[0, 0, 0, 10]} weight={'bold'} color={colors.black} >{item.title}</ResponsiveText>
-                                <ResponsiveText margin={[5, 0, 0, 10]} weight={'bold'} color={colors.primary} >{item.price}</ResponsiveText>
-                                <View style={{ flexDirection: 'row', marginLeft: 10, marginTop: 5 }}>
-                                    <TouchableOpacity
-                                        onPress={() => updateCount("Dec")}
-                                    >
-                                        <View style={{ backgroundColor: colors.primary, paddingHorizontal: 12, marginLeft: 5 }}>
-                                            <ResponsiveText weight={'bold'} color={colors.white} size={6}>
-                                                -
+            <SafeAreaView style={styles.container} edges={["top", "left", "right"]}>
+                <ChatHeader
+                    backbutton
+                    // title={title}
+                    navigation={navigation}
+                />
+                {Data.map((item) => {
+                    return (
+                        <View style={{ marginTop: 10, justifyContent: 'center', alignItems: 'center' }}>
+                            <Card flexDirection='row' style={{ width: wp(90), margin: 0, marginHorizontal: 10, top: 0, borderRadius: 0 }}>
+                                <Icon margin={[0, 0, 0, 0]}
+                                    size={100}
+                                    source={item.url}>
+                                </Icon>
+                                <View style={{ flex: 1 }} >
+                                    <ResponsiveText margin={[0, 0, 0, 10]} weight={'bold'} color={colors.black} >{item.title}</ResponsiveText>
+                                    <ResponsiveText margin={[5, 0, 0, 10]} weight={'bold'} color={colors.primary} >{item.price}</ResponsiveText>
+                                    <View style={{ flexDirection: 'row', marginLeft: 10, marginTop: 5 }}>
+                                        <TouchableOpacity
+                                            onPress={() => updateCount("Dec")}
+                                        >
+                                            <View style={{ backgroundColor: colors.primary, paddingHorizontal: 12, marginLeft: 5 }}>
+                                                <ResponsiveText weight={'bold'} color={colors.white} size={6}>
+                                                    -
+                                                </ResponsiveText>
+                                            </View>
+                                        </TouchableOpacity>
+                                        <View
+                                            style={{
+                                                // backgroundColor: colors.primary,
+                                                height: wp(10),
+                                                width: wp(10),
+                                                justifyContent: "center",
+                                                alignItems: "center",
+                                                borderRadius: 45,
+                                            }}
+                                        >
+                                            <ResponsiveText color={colors.black} size={6}>
+                                                {count}
                                             </ResponsiveText>
                                         </View>
-                                    </TouchableOpacity>
-                                    <View
-                                        style={{
-                                            // backgroundColor: colors.primary,
-                                            height: wp(10),
-                                            width: wp(10),
-                                            justifyContent: "center",
-                                            alignItems: "center",
-                                            borderRadius: 45,
-                                        }}
-                                    >
-                                        <ResponsiveText color={colors.black} size={6}>
-                                            {count}
-                                        </ResponsiveText>
+                                        <TouchableOpacity
+                                            onPress={() => updateCount("Inc")}
+                                        >
+                                            <View style={{ backgroundColor: colors.primary, paddingHorizontal: 5, paddingHorizontal: 10 }}>
+                                                <ResponsiveText weight={'bold'} color={colors.white} size={6}>
+                                                    +
+                                                </ResponsiveText>
+
+                                            </View>
+                                        </TouchableOpacity>
+                                        <TouchableOpacity style={{ justifyContent: 'center',flex:1,marginLeft:30}}>
+                                            <View
+                                                style={{
+                                                    alignSelf: 'center',
+                                                    backgroundColor: colors.red,
+                                                    height: hp(5),
+                                                    width: hp(5),
+                                                    borderRadius: 30,
+                                                    // marginRight: 10,
+                                                    justifyContent: 'center',
+                                                    // marginTop: '40%',
+                                                    alignItems: 'center',
+                                                    alignContent: 'center',
+                                                    // top: 40
+
+                                                }}
+                                            >
+                                                <Icon source={globalPath.DeleteIcon} tintColor={colors.white} />
+                                            </View>
+                                        </TouchableOpacity>
                                     </View>
-                                    <TouchableOpacity
-                                        onPress={() => updateCount("Inc")}
-                                    >
-                                        <View style={{ backgroundColor: colors.primary, paddingHorizontal: 5, paddingHorizontal: 10 }}>
-                                            <ResponsiveText weight={'bold'} color={colors.white} size={6}>
-                                                +
-                                            </ResponsiveText>
-
-                                        </View>
-                                    </TouchableOpacity>
                                 </View>
-                            </View>
-                        </Card>
+                            </Card>
+                        </View>
+                    )
+                })}
+                <Card style={{ width: wp(90), marginLeft: 18, marginTop: 20, height: hp(25), borderRadius: 0 }}>
+                    <View style={{ flexDirection: 'row', marginTop: 5, borderBottomWidth: 1, borderBottomColor: colors.lightWhite, }}>
+                        <ResponsiveText flex={0.9} size={5} margin={[5, 0, 0, 0]} weight={'bold'} color={colors.grey5} >{'Price Details'}</ResponsiveText>
                     </View>
-                    </Swipeout>
-                )
-            })}
-            <Card style={{width: wp(90),marginLeft:18,marginTop:20,height:hp(25),borderRadius:0}}> 
-            <View style={{ flexDirection: 'row', marginTop: 5, borderBottomWidth: 1, borderBottomColor: colors.lightWhite,}}>
-            <ResponsiveText flex={0.9} size={5} margin={[5, 0, 0, 0]} weight={'bold'} color={colors.grey5} >{'Price Details'}</ResponsiveText>             
-                </View>                          
-                <View style={{ flexDirection: 'row', marginTop: 10, borderBottomWidth: 0, borderBottomColor: colors.lightWhite,flex:1}}>
-                <ResponsiveText size={4} flex={0.9} margin={[0, 0, 0, 0]} weight={'bold'} color={colors.black} >{'Sub Total'}</ResponsiveText>
-                <ResponsiveText margin={[0, 0, 0, 0]} weight={'bold'} color={colors.black} >{'$22.60'}</ResponsiveText>              
-                </View>
-                <View style={{ flexDirection: 'row', marginTop: 10, borderBottomWidth: 0, borderBottomColor: colors.lightWhite,flex:1}}>
-                <ResponsiveText size={4} flex={0.9} margin={[0, 0, 0, 0]} weight={'bold'} color={colors.black} >{'Delivery Fee'}</ResponsiveText>
-                <ResponsiveText margin={[0, 0, 0, 0]} weight={'bold'} color={colors.primary} >{'Free'}</ResponsiveText>              
-                </View>
-                <View style={{ flexDirection: 'row', marginTop: 10, borderBottomWidth: 0, borderBottomColor: colors.lightWhite,flex:1}}>
-                <ResponsiveText size={4} flex={0.9} margin={[0, 0, 0, 0]} weight={'bold'} color={colors.black} >{'Amount Payable'}</ResponsiveText>
-                <ResponsiveText margin={[0, 0, 0, 0]} weight={'bold'} color={colors.black} >{'$22.60'}</ResponsiveText>              
-                </View>
-                <View style={{ flexDirection: 'row', marginTop: 10, borderBottomWidth: 0, borderBottomColor: colors.lightWhite,flex:1}}>
-                <ResponsiveText size={3} flex={0.9} margin={[0, 0, 0, 0]} weight={'bold'} color={colors.primary} >{'You will save $4.00 on this order'}</ResponsiveText>             
-                </View>
-            </Card>
-            <Card style={{width: wp(90),marginLeft:18,marginTop:15,height:hp(10)}}>                          
-                <View style={{ flexDirection: 'row', borderBottomColor: colors.lightWhite,alignItems:'center'}}>
-                <ResponsiveText size={5} flex={0.9} margin={[0, 0, 0, 0]} weight={'bold'} color={colors.black} >{'$22.00'}</ResponsiveText>
-                 <TouchableOpacity onPress={() => navigation.navigate(routeName.PAYMENT_METHOD)}>
-                            <View style={{backgroundColor: colors.primary,height:hp(6),width: wp(30),borderRadius:3}}>
+                    <View style={{ flexDirection: 'row', marginTop: 10, borderBottomWidth: 0, borderBottomColor: colors.lightWhite, flex: 1 }}>
+                        <ResponsiveText size={4} flex={0.9} margin={[0, 0, 0, 0]} weight={'bold'} color={colors.black} >{'Sub Total'}</ResponsiveText>
+                        <ResponsiveText margin={[0, 0, 0, 0]} weight={'bold'} color={colors.black} >{'$22.60'}</ResponsiveText>
+                    </View>
+                    <View style={{ flexDirection: 'row', marginTop: 10, borderBottomWidth: 0, borderBottomColor: colors.lightWhite, flex: 1 }}>
+                        <ResponsiveText size={4} flex={0.9} margin={[0, 0, 0, 0]} weight={'bold'} color={colors.black} >{'Delivery Fee'}</ResponsiveText>
+                        <ResponsiveText margin={[0, 0, 0, 0]} weight={'bold'} color={colors.primary} >{'Free'}</ResponsiveText>
+                    </View>
+                    <View style={{ flexDirection: 'row', marginTop: 10, borderBottomWidth: 0, borderBottomColor: colors.lightWhite, flex: 1 }}>
+                        <ResponsiveText size={4} flex={0.9} margin={[0, 0, 0, 0]} weight={'bold'} color={colors.black} >{'Amount Payable'}</ResponsiveText>
+                        <ResponsiveText margin={[0, 0, 0, 0]} weight={'bold'} color={colors.black} >{'$22.60'}</ResponsiveText>
+                    </View>
+                    <View style={{ flexDirection: 'row', marginTop: 10, borderBottomWidth: 0, borderBottomColor: colors.lightWhite, flex: 1 }}>
+                        <ResponsiveText size={3} flex={0.9} margin={[0, 0, 0, 0]} weight={'bold'} color={colors.primary} >{'You will save $4.00 on this order'}</ResponsiveText>
+                    </View>
+                </Card>
+                <Card style={{ width: wp(90), marginLeft: 18, marginTop: 15, height: hp(10) }}>
+                    <View style={{ flexDirection: 'row', borderBottomColor: colors.lightWhite, alignItems: 'center' }}>
+                        <ResponsiveText size={5} flex={0.9} margin={[0, 0, 0, 0]} weight={'bold'} color={colors.black} >{'$22.00'}</ResponsiveText>
+                        <TouchableOpacity onPress={() => navigation.navigate(routeName.PAYMENT_METHOD)}>
+                            <View style={{ backgroundColor: colors.primary, height: hp(6), width: wp(30), borderRadius: 3 }}>
                                 <ResponsiveText margin={[10, 0, 0, 0]} textAlign={'center'} weight={'bold'} color={colors.white} size={4}>
                                     Countinue
                                 </ResponsiveText>
                             </View>
-                        </TouchableOpacity>              
-                </View>
-            </Card>
-        </SafeAreaView>
-        </ScrollView>
+                        </TouchableOpacity>
+                    </View>
+                </Card>
+            </SafeAreaView >
+        </ScrollView >
     )
 }
 

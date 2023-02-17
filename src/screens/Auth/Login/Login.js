@@ -195,8 +195,8 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 35,
   },
   logo: {
-    height: hp(20),
-    width: wp(50),
+    height: hp(30),
+    width: wp(70),
     resizeMode: "contain",
     // marginBottom: 20,
     alignItems: "center",

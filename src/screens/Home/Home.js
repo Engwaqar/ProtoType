@@ -17,7 +17,7 @@ import HomeHeader from '../../components/HomeHeader'
 import Input2 from '../../components/Input2'
 import Input from '../../components/Input';
 
-const Home = ({navigation}) => {
+const Home = ({ navigation }) => {
   const Data = [
     {
       id: 1,
@@ -50,8 +50,10 @@ const Home = ({navigation}) => {
           Itemtitle="2680 Stadium Drive Fall..."
           ItemName="Categories"
           searchBox
+          AddToCart={globalPath.AddToCart}
+          navigation={navigation}
         />
-         
+
         <View style={{ height: wp(42) }}>
           <ScrollView horizontal  >
             {Data.map((item) => {
@@ -69,11 +71,11 @@ const Home = ({navigation}) => {
         </View>
         <View style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
           <ResponsiveText margin={[10, 0, 0, 20]} textAlign={'center'} weight={'bold'} color={colors.black} size={4}>Exclusive Offer</ResponsiveText>
-         <TouchableOpacity>
-          <ResponsiveText margin={[10, 20, 0, 0]} textAlign={'center'} weight={'bold'} color={colors.primary} size={4}>View All</ResponsiveText>
+          <TouchableOpacity onPress={() => navigation.navigate(routeName.VIEW_ALL_ITEM)}>
+            <ResponsiveText margin={[10, 20, 0, 0]} textAlign={'center'} weight={'bold'} color={colors.primary} size={4}>View All</ResponsiveText>
           </TouchableOpacity>
         </View>
-        <View style={{ height: hp(26) }}>
+        <View style={{ height: hp(28) }}>
           <ScrollView horizontal showsHorizontalScrollIndicator={false} >
             {Data.map((item) => {
               return (
@@ -81,27 +83,38 @@ const Home = ({navigation}) => {
                   // flex: 1,
                   margin: 0,
                   padding: 10,
+                  marginTop:10
                   // borderRadius: 7,
                   //  flexDirection: 'row'
-                }}>
-                  <Card style={{ width: wp(40), alignItems: 'center', justifyContent: 'center', height: wp(45), margin: 0, }}>
+                  }}>
+                   <TouchableOpacity onPress={()=>navigation.navigate(routeName.PRODUCT_DETAIL,{item:item})}>
+                  <Card style={{
+                    width: wp(45),
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    height: wp(50),
+                    bottom: 12,
+                    margin: 0,
+                  }}>
+                    <TouchableOpacity style={{alignSelf:'flex-end',top:20}}>
+                      <Icon
+                        // tintColor={colors.primary}
+                        size={30}
+                        margin={[0, 0, 0, 0]}
+                        source={globalPath.FillHeart}
+                      >
+                      </Icon>
+                      </TouchableOpacity> 
+                    <View style={{ flexDirection: 'row',justifyContent:'space-between' }}>
                     <Icon
-                      // tintColor={colors.primary}
-                      size={90}
-                      source={item.url
-                        // item.complainName == "Electricity" 
-                        // ?globalPath.Electricity 
-                        // :item.complainName == "Gas" 
-                        // ?globalPath.Gas 
-                        // :item.complainName == "Internet" 
-                        // ?globalPath.Internet
-                        // :item.complainName == "Water"
-                        //  ?globalPath.Water 
-                        //  :globalPath.Water
-
-                      }
-                    >
-                    </Icon>
+                        // tintColor={colors.primary}
+                        size={80}
+                        borderRadius={50}
+                        source={item.url}
+                      >
+                      </Icon>
+                     
+                    </View>
                     <ResponsiveText
                       weight={'bold'}
                       textAlign={'center'}
@@ -117,24 +130,27 @@ const Home = ({navigation}) => {
                     >{item.price}
                     </ResponsiveText>
                     <TouchableOpacity onPress={() => navigation.navigate(routeName.SHOPPING_CART)}>
-                    <View style={{ marginHorizontal: 0, backgroundColor: colors.yellow, paddingHorizontal: 25, paddingVertical: 6, marginBottom: 20, borderRadius: 20, }}>
-                      <ResponsiveText weight={'bold'} color={colors.white} size={2.9}>
-                        Add To Cart
-                      </ResponsiveText>
-                    </View>
+                      <View style={{ marginHorizontal: 0, backgroundColor: colors.yellow, paddingHorizontal: 25, paddingVertical: 6, marginBottom: 20, borderRadius: 20, }}>
+                        <ResponsiveText weight={'bold'} color={colors.white} size={2.9}>
+                          Add To Cart
+                        </ResponsiveText>
+                      </View>
                     </TouchableOpacity>
                   </Card>
-                </View>)
+                  </TouchableOpacity>
+                </View>
+                )
             })}
           </ScrollView>
         </View>
         <View style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
           <ResponsiveText margin={[10, 0, 0, 20]} textAlign={'center'} weight={'bold'} color={colors.black} size={4}>Best Selling Products</ResponsiveText>
-         <TouchableOpacity>
-          <ResponsiveText margin={[10, 20, 0, 0]} textAlign={'center'} weight={'bold'} color={colors.primary} size={4}>View All</ResponsiveText>
+          <TouchableOpacity onPress={() => navigation.navigate(routeName.VIEW_ALL_ITEM)}>
+            <ResponsiveText margin={[10, 20, 0, 0]} textAlign={'center'} weight={'bold'} color={colors.primary} size={4}>View All</ResponsiveText>
           </TouchableOpacity>
         </View>
-        <View style={{ height: hp(26) }}>
+        
+        <View style={{ height: hp(28) }}>
           <ScrollView horizontal showsHorizontalScrollIndicator={false} >
             {Data.map((item) => {
               return (
@@ -142,16 +158,38 @@ const Home = ({navigation}) => {
                   // flex: 1,
                   margin: 0,
                   padding: 10,
+                  marginTop:10
                   // borderRadius: 7,
                   //  flexDirection: 'row'
-                }}>
-                  <Card style={{ width: wp(40), alignItems: 'center', justifyContent: 'center', height: wp(45), margin: 0, }}>
+                  }}>
+                   <TouchableOpacity onPress={()=>navigation.navigate(routeName.PRODUCT_DETAIL,{item:item})}>
+                  <Card style={{
+                    width: wp(45),
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    height: wp(50),
+                    bottom: 12,
+                    margin: 0,
+                  }}>
+                    <TouchableOpacity style={{alignSelf:'flex-end',top:20}}>
+                      <Icon
+                        // tintColor={colors.primary}
+                        size={30}
+                        margin={[0, 0, 0, 0]}
+                        source={globalPath.FillHeart}
+                      >
+                      </Icon>
+                      </TouchableOpacity> 
+                    <View style={{ flexDirection: 'row',justifyContent:'space-between' }}>
                     <Icon
-                      // tintColor={colors.primary}
-                      size={90}
-                      source={item.url}
-                    >
-                    </Icon>
+                        // tintColor={colors.primary}
+                        size={80}
+                        borderRadius={50}
+                        source={item.url}
+                      >
+                      </Icon>
+                     
+                    </View>
                     <ResponsiveText
                       weight={'bold'}
                       textAlign={'center'}
@@ -167,24 +205,27 @@ const Home = ({navigation}) => {
                     >{item.price}
                     </ResponsiveText>
                     <TouchableOpacity onPress={() => navigation.navigate(routeName.SHOPPING_CART)}>
-                    <View style={{ marginHorizontal: 0, backgroundColor: colors.yellow, paddingHorizontal: 25, paddingVertical: 6, marginBottom: 20, borderRadius: 20, }}>
-                      <ResponsiveText weight={'bold'} color={colors.white} size={2.9}>
-                        Add To Cart
-                      </ResponsiveText>
-                    </View>
+                      <View style={{ marginHorizontal: 0, backgroundColor: colors.yellow, paddingHorizontal: 25, paddingVertical: 6, marginBottom: 20, borderRadius: 20, }}>
+                        <ResponsiveText weight={'bold'} color={colors.white} size={2.9}>
+                          Add To Cart
+                        </ResponsiveText>
+                      </View>
                     </TouchableOpacity>
                   </Card>
-                </View>)
+                  </TouchableOpacity>
+                </View>
+                )
             })}
           </ScrollView>
         </View>
+        
         <View style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
           <ResponsiveText margin={[10, 0, 0, 20]} textAlign={'center'} weight={'bold'} color={colors.black} size={4}>Exclusive Offer</ResponsiveText>
-         <TouchableOpacity>
-          <ResponsiveText margin={[10, 20, 0, 0]} textAlign={'center'} weight={'bold'} color={colors.primary} size={4}>View All</ResponsiveText>
+          <TouchableOpacity onPress={() => navigation.navigate(routeName.VIEW_ALL_ITEM)}>
+            <ResponsiveText margin={[10, 20, 0, 0]} textAlign={'center'} weight={'bold'} color={colors.primary} size={4}>View All</ResponsiveText>
           </TouchableOpacity>
         </View>
-        <View style={{ height: hp(26) }}>
+        <View style={{ height: hp(30) }}>
           <ScrollView horizontal showsHorizontalScrollIndicator={false} >
             {Data.map((item) => {
               return (
@@ -192,16 +233,38 @@ const Home = ({navigation}) => {
                   // flex: 1,
                   margin: 0,
                   padding: 10,
+                  marginTop:10
                   // borderRadius: 7,
                   //  flexDirection: 'row'
-                }}>
-                  <Card style={{ width: wp(40), alignItems: 'center', justifyContent: 'center', height: wp(45), margin: 0, }}>
+                  }}>
+                   <TouchableOpacity onPress={()=>navigation.navigate(routeName.PRODUCT_DETAIL,{item:item})}>
+                  <Card style={{
+                    width: wp(45),
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    height: wp(50),
+                    bottom: 12,
+                    margin: 0,
+                  }}>
+                    <TouchableOpacity style={{alignSelf:'flex-end',top:20}}>
+                      <Icon
+                        // tintColor={colors.primary}
+                        size={30}
+                        margin={[0, 0, 0, 0]}
+                        source={globalPath.FillHeart}
+                      >
+                      </Icon>
+                      </TouchableOpacity> 
+                    <View style={{ flexDirection: 'row',justifyContent:'space-between' }}>
                     <Icon
-                      // tintColor={colors.primary}
-                      size={90}
-                      source={item.url}
-                    >
-                    </Icon>
+                        // tintColor={colors.primary}
+                        size={80}
+                        borderRadius={50}
+                        source={item.url}
+                      >
+                      </Icon>
+                     
+                    </View>
                     <ResponsiveText
                       weight={'bold'}
                       textAlign={'center'}
@@ -217,25 +280,26 @@ const Home = ({navigation}) => {
                     >{item.price}
                     </ResponsiveText>
                     <TouchableOpacity onPress={() => navigation.navigate(routeName.SHOPPING_CART)}>
-                    <View style={{ marginHorizontal: 0, backgroundColor: colors.yellow, paddingHorizontal: 25, paddingVertical: 6, marginBottom: 20, borderRadius: 20, }}>
-                      <ResponsiveText weight={'bold'} color={colors.white} size={2.9}>
-                        Add To Cart
-                      </ResponsiveText>
-                    </View>
+                      <View style={{ marginHorizontal: 0, backgroundColor: colors.yellow, paddingHorizontal: 25, paddingVertical: 6, marginBottom: 20, borderRadius: 20, }}>
+                        <ResponsiveText weight={'bold'} color={colors.white} size={2.9}>
+                          Add To Cart
+                        </ResponsiveText>
+                      </View>
                     </TouchableOpacity>
                   </Card>
-                </View>)
+                  </TouchableOpacity>
+                </View>
+                )
             })}
           </ScrollView>
         </View>
-        <View style={{height:hp(10)}}>
+        <View style={{ height: hp(10) }}>
 
         </View>
       </SafeAreaView>
     </ScrollView>
   )
 }
-
 export default Home
 
 const styles = StyleSheet.create({

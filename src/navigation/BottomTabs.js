@@ -20,6 +20,8 @@ import Home from "../screens/Home/Home";
 import Icon from "../components/Icon";
 import AllCategoriesList from "../screens/Categories/AllCategoriesList";
 import Profile from "../screens/MyAccount/Profile";
+import NotifactionList from "../screens/Notification/NotificationList";
+import ResponsiveText from "../components/RnText";
 
 const Tab = createBottomTabNavigator();
 
@@ -29,7 +31,7 @@ export default function BottomTabs() {
   const tabOffsetValue = useRef(new Animated.Value(0)).current;
   const [isKeyboardVisible, setKeyboardVisible] = useState(false);
 
- useEffect(() => {
+  useEffect(() => {
     const keyboardDidShowListener = Keyboard.addListener(
       'keyboardDidShow',
       () => {
@@ -54,7 +56,7 @@ export default function BottomTabs() {
         style={{ marginHorizontal: 10 }}
         // sceneContainerStyle={{marginHorizontal:20,backgroundColor:'red'}}
         screenOptions={{
-          tabBarHideOnKeyboard:true,
+          tabBarHideOnKeyboard: true,
           headerShown: false,
           tabBarShowLabel: true,
           tabBarActiveTintColor: colors.primary,
@@ -88,27 +90,6 @@ export default function BottomTabs() {
           //  }
         }}
       >
-        {/* <Tab.Screen
-          name={"CheckStack"}
-          component={CheckStack}
-          options={{
-            tabBarIcon: ({ focused }) => (
-              <View style={focused ? styles.TouchableTab : {}}>
-                <View style={focused ? styles.ActiveTab : styles.inActiveTab}>
-                  <Image
-                    source={globalPath.checkin}
-                    resizeMode={"contain"}
-                    style={{
-                      width: 22,
-                      height: 22,
-                      tintColor: "white",
-                    }}
-                  ></Image>
-                </View>
-              </View>
-            ),
-          }}
-        ></Tab.Screen> */}
         <Tab.Screen
           name={"Home"}
           component={Home}
@@ -120,9 +101,9 @@ export default function BottomTabs() {
                     source={globalPath.home}
                     resizeMode={"contain"}
                     style={{
-                      width: 30,
-                      height: 30,
-                      tintColor:focused? colors.primary:'grey',
+                      width: 27,
+                      height: 25,
+                      tintColor: focused ? colors.primary : 'grey',
                     }}
                   ></Image>
                 </View>
@@ -130,7 +111,7 @@ export default function BottomTabs() {
             ),
           }}
         ></Tab.Screen>
-          <Tab.Screen
+        <Tab.Screen
           name={"Categories"}
           component={AllCategoriesList}
           options={{
@@ -141,9 +122,9 @@ export default function BottomTabs() {
                     source={globalPath.Category}
                     resizeMode={"contain"}
                     style={{
-                      width: 30,
-                      height: 30,
-                      tintColor:focused? colors.primary:'grey',
+                      width: 25,
+                      height: 25,
+                      tintColor: focused ? colors.primary : 'grey',
                     }}
                   ></Image>
                 </View>
@@ -154,7 +135,7 @@ export default function BottomTabs() {
         </Tab.Screen>
         <Tab.Screen
           name={"Notification"}
-          component={History}
+          component={NotifactionList}
           options={{
             tabBarIcon: ({ focused }) => (
               <View >
@@ -163,16 +144,34 @@ export default function BottomTabs() {
                     source={globalPath.Notifi}
                     resizeMode={"contain"}
                     style={{
-                      width: 30,
-                      height: 30,
-                      tintColor:focused? colors.primary:'grey',
+                      width: 25,
+                      height: 25,
+                      top: 11,
+                      tintColor: focused ? colors.primary : 'grey',
                     }}
                   ></Image>
+                </View>
+                <View style={{
+                  // position: 'absolute',
+                  backgroundColor: colors.red,
+                  width: 18,
+                  height: 18,
+                  borderRadius: 10,
+                  // zIndex: 1,
+                  // top: 0,
+                  right: 0,
+                  left: 15,
+                  bottom: 18,
+
+                }}>
+                  <ResponsiveText textAlign={'center'} color={colors.white}>{'2'}</ResponsiveText>
                 </View>
               </View>
             ),
           }}
-        ></Tab.Screen>
+        >
+        </Tab.Screen>
+
 
         <Tab.Screen
           name={"My Account"}
@@ -185,9 +184,9 @@ export default function BottomTabs() {
                     source={globalPath.User}
                     resizeMode={"contain"}
                     style={{
-                      width: 30,
-                      height: 30,
-                      tintColor:focused? colors.primary:'grey',
+                      width: 25,
+                      height: 25,
+                      tintColor: focused ? colors.primary : 'grey',
                     }}
                   ></Image>
                 </View>

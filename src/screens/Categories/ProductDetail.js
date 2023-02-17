@@ -69,6 +69,7 @@ const ProductDetail = ({ navigation, route }) => {
                         // tintColor={colors.primary}
                         margin={[20, 0, 0, 0]}
                         size={150}
+                        borderRadius={80}
                         source={itemDetail.url}
                     >
                     </Icon>
@@ -145,7 +146,7 @@ const ProductDetail = ({ navigation, route }) => {
             <View style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
                 <ResponsiveText margin={[10, 0, 0, 20]} textAlign={'center'} weight={'bold'} color={colors.black} size={4}>Exclusive Offer</ResponsiveText>
             </View>
-            <View style={{ height: hp(26) }}>
+            <View style={{ height: hp(30) }}>
                 <ScrollView horizontal showsHorizontalScrollIndicator={false} >
                     {Data1.map((item) => {
                         return (
@@ -153,50 +154,63 @@ const ProductDetail = ({ navigation, route }) => {
                                 // flex: 1,
                                 margin: 0,
                                 padding: 10,
+                                marginTop:10
                                 // borderRadius: 7,
                                 //  flexDirection: 'row'
-                            }}>
-                                <Card style={{ width: wp(40), alignItems: 'center', justifyContent: 'center', height: wp(45), margin: 0, }}>
+                                }}>
+                                 <TouchableOpacity onPress={()=>navigation.navigate(routeName.PRODUCT_DETAIL,{item:item})}>
+                                <Card style={{
+                                  width: wp(45),
+                                  alignItems: 'center',
+                                  justifyContent: 'center',
+                                  height: wp(50),
+                                  bottom: 12,
+                                  margin: 0,
+                                }}>
+                                  <TouchableOpacity style={{alignSelf:'flex-end',top:20}}>
                                     <Icon
-                                        // tintColor={colors.primary}
-                                        size={90}
-                                        source={item.url
-                                            // item.complainName == "Electricity" 
-                                            // ?globalPath.Electricity 
-                                            // :item.complainName == "Gas" 
-                                            // ?globalPath.Gas 
-                                            // :item.complainName == "Internet" 
-                                            // ?globalPath.Internet
-                                            // :item.complainName == "Water"
-                                            //  ?globalPath.Water 
-                                            //  :globalPath.Water
-
-                                        }
+                                      // tintColor={colors.primary}
+                                      size={30}
+                                      margin={[0, 0, 0, 0]}
+                                      source={globalPath.FillHeart}
                                     >
                                     </Icon>
-                                    <ResponsiveText
-                                        weight={'bold'}
-                                        textAlign={'center'}
-                                        margin={[0, 0, 0, 0]}
-                                        color={colors.black1}
-                                    >{item.title}
-                                    </ResponsiveText>
-                                    <ResponsiveText
-
-                                        margin={[2, 0, 0, 0]}
-                                        color={colors.primary}
-                                        textAlign={'center'}
-                                    >{item.price}
-                                    </ResponsiveText>
-                                    <TouchableOpacity onPress={() => navigation.navigate(routeName.SHOPPING_CART, { item: itemDetail })}>
-                                        <View style={{ marginHorizontal: 0, backgroundColor: colors.yellow, paddingHorizontal: 25, paddingVertical: 6, marginBottom: 20, borderRadius: 20, }}>
-                                            <ResponsiveText weight={'bold'} color={colors.white} size={2.9}>
-                                                Add To Cart
-                                            </ResponsiveText>
-                                        </View>
-                                    </TouchableOpacity>
+                                    </TouchableOpacity> 
+                                  <View style={{ flexDirection: 'row',justifyContent:'space-between' }}>
+                                  <Icon
+                                      // tintColor={colors.primary}
+                                      size={80}
+                                      borderRadius={50}
+                                      source={item.url}
+                                    >
+                                    </Icon>
+                                   
+                                  </View>
+                                  <ResponsiveText
+                                    weight={'bold'}
+                                    textAlign={'center'}
+                                    margin={[0, 0, 0, 0]}
+                                    color={colors.black1}
+                                  >{item.title}
+                                  </ResponsiveText>
+                                  <ResponsiveText
+              
+                                    margin={[2, 0, 0, 0]}
+                                    color={colors.primary}
+                                    textAlign={'center'}
+                                  >{item.price}
+                                  </ResponsiveText>
+                                  <TouchableOpacity onPress={() => navigation.navigate(routeName.SHOPPING_CART)}>
+                                    <View style={{ marginHorizontal: 0, backgroundColor: colors.yellow, paddingHorizontal: 25, paddingVertical: 6, marginBottom: 20, borderRadius: 20, }}>
+                                      <ResponsiveText weight={'bold'} color={colors.white} size={2.9}>
+                                        Add To Cart
+                                      </ResponsiveText>
+                                    </View>
+                                  </TouchableOpacity>
                                 </Card>
-                            </View>)
+                                </TouchableOpacity>
+                              </View>
+                            )
                     })}
                 </ScrollView>
             </View>

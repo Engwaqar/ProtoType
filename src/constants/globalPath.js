@@ -1,7 +1,7 @@
 // 1. INITIALIZE PATH  E.G  const BG_IMAGE = require('../assets/icons/background.png');
 // 2. EXPORT CONSTANT BELOW ICON PATHS IN GLOBAL PATH OBJECT
 
-const logo = require("../assets/icons/splashlogo.jpeg");
+const logo = require("../assets/icons/splashlogo.png");
 const background = require("../assets/icons/splash-bg.png");
 const home = require("../assets/icons/home.png");
 const User = require("../assets/icons/user.png");
@@ -19,7 +19,12 @@ const MyWallet = require("../assets/icons/Wallet.png");
 const earn = require("../assets/icons/earn.png");
 const ChangePassword = require("../assets/icons/ChangePassword.png");
 const loogout = require("../assets/icons/logout.png");
-
+const Camera = require("../assets/icons/Camera.png");
+const editProfile = require("../assets/icons/editProfile.png");
+const FillHeart = require("../assets/icons/FillHeart.png");
+const EmptyHeart = require("../assets/icons/emptyHerat.png");
+const ForwardArrow = require("../assets/icons/ForwardArrow.png");
+FillHeart
 export const globalPath = {
   logo,
   background,
@@ -39,4 +44,9 @@ export const globalPath = {
   earn,
   ChangePassword,
   loogout,
+  Camera,
+  editProfile,
+  FillHeart,
+  EmptyHeart,
+  ForwardArrow
 };

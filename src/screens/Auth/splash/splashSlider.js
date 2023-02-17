@@ -10,88 +10,140 @@ import { CommonActions } from "@react-navigation/native";
 import AsyncStorage from "@react-native-community/async-storage";
 import { StackActions } from "@react-navigation/native";
 // import Screen from "../../../components/Screen";
-import {SliderImages} from '../../../constants/mock'
+// import {SliderImages} from '../../../constants/mock'
 import { colors } from "../../../constants/colorsPallet";
 import { routeName } from "../../../constants/routeName";
- import { globalPath } from "../../../constants/globalPath";
- import { hp, wp } from "../../../helpers/Responsiveness";
- import  Fonts  from "../../../helpers/Fonts";
+import { globalPath } from "../../../constants/globalPath";
+import { hp, wp } from "../../../helpers/Responsiveness";
+import Fonts from "../../../helpers/Fonts";
 import RnText from "../../../components/RnText";
 import Swiper from 'react-native-swiper';
 import FastImage from 'react-native-fast-image'
+import Icon from "../../../components/Icon";
+import AppIntroSlider from 'react-native-app-intro-slider';
+const SplashSlider = ({ navigation }) => {
+  // const [showRealApp, setshowRealApp] = useState(false)
+  const Data = [
+    {
+      id: 1,
+      url: require('../../../assets/icons/Veg1.png'),
+      title: 'Find Your Nearby Grocery Store',
+      text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
+      bg: colors.white,
+    },
+
+    {
+      id: 2,
+      url: require('../../../assets/icons/Veg2.png'),
+      title: 'Offers Fresh & Quality Groceries For You',
+      text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
+      bg: colors.white,
+    },
+    {
+      id: 3,
+      url: require('../../../assets/icons/Veg3.png'),
+      title: 'Quick Deliver at your Doorstep',
+      text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
+      bg: colors.white,
+    },
 
 
-
-// import Icon from "../../../components/Icon";
-import { useDispatch } from "react-redux";
-// import { getBfaPartners } from "../../../redux/actions/user.actions";
-
-const Splash = ({ navigation }) => {
-  
- 
-
-  React.useEffect(() => {
-    //fetchAndSetUser();
-  }, []);
-
+  ];
+  const NextButton = () => {
+    return (
+      <View style={styles.buttonCircle}>
+        <Icon
+          source={globalPath.ForwardArrow}
+          size={24}
+        />
+      </View>
+    );
+  };
+  const DoneButton = () => {
+    return (
+      <View style={styles.buttonCircle}>
+        <Text style={{fontSize:11,fontWeight:'bold'}}>Done</Text>
+      </View>
+    );
+  };
   return (
-    
+
     <View style={styles.container}>
-      <Swiper
-        showsButtons={false}
-        autoplay={true}
-        autoplayTimeout={3}
-        removeClippedSubviews={false}
-        showsButtons={false}
-        // dotColor="white"
-        activeDotColor="green"
-      >
-        {SliderImages.map((Image) => {
+      <AppIntroSlider
+        data={Data}
+        onDone={() => navigation.navigate(routeName.LOGIN)}
+        renderDoneButton={DoneButton}
+        renderNextButton={NextButton}
+        renderItem={({ item }) => {
           return (
-            <View style={styles.slide1}>
-              <FastImage style={styles.poweredLogo} source={Image.url} />
+            <View
+              style={[
+                styles.slide,
+                {
+                  backgroundColor: item.bg,
+                },
+              ]}
+            >
+              <Image source={item.url} style={styles.image} />
+              <Text style={styles.title}>{item.title}</Text>
+              <Text style={styles.text}>{item.text}</Text>
             </View>
           );
-        })}
-
-      </Swiper>
+        }}
+      //  renderNextButton={this._renderNextButton}
+      />
       <View style={styles.Text1}>
-        <TouchableOpacity  onPress={()=>navigation.navigate(routeName.LOGIN)}>
-          <Text style={styles.Text}>Skip</Text>
+        <TouchableOpacity
+        //  onPress={()=>navigation.navigate(routeName.LOGIN)}
+        >
+          {/* <View style={styles.Text}>
+      <Icon margin={[0, 7, 0, 0]}
+      tintColor={colors.white}
+        size={30}
+        source={globalPath.backarrow}>
+        </Icon>
+        </View> */}
+          {/* <Text style={styles.Text}>Skip</Text> */}
         </TouchableOpacity>
       </View>
-
     </View>
   );
-};
+}
 
+export default SplashSlider
 const styles = StyleSheet.create({
   container: {
-    flex: 1,backgroundColor:colors.white
+    flex: 1, backgroundColor: colors.white
   },
-  poweredLogo: {
-    height: hp(100), width: wp(100), resizeMode: 'contain', position: 'absolute'
+  slide: {
+    flex: 0.8,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#59b2ab',
   },
   image: {
-    flex: 1,alignItems:'center'
+    width: hp(37),
+    height: hp(35),
+    marginVertical: 10,
   },
-  logo:{
-    height:hp(20),width:wp(60),resizeMode:'contain',
+  text: {
+    color: colors.black,
+    textAlign: 'center',
+    alignSelf: 'center',
+    fontSize: 20,
   },
-  slide1: {
-    flex: 0,
+  title: {
+    fontSize: 30,
+    color: 'white',
+    textAlign: 'center',
+    color: colors.primary
   },
-  Text1: {
-    position: 'absolute',
-    bottom: 0,
-    right: 5,
-    marginBottom: '4%',
-    marginRight: '7%'
-  },
-  Text: {
-    fontWeight: 'bold',
-    fontSize: 15,
-    color: 'green'
+  buttonCircle: {
+    width: 40,
+    height: 40,
+    backgroundColor: 'rgba(0, 0, 0, .2)',
+    borderRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
-export default Splash;
